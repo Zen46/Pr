@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Економічний калькулятор</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.formula {
+  font-weight: bold;
+}
+
+input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius:5px;
+    border:none;
+    box-shadow:inset -1px -1px #ddd,inset -2px -2px #ddd,inset -3px -3px #ddd,inset -4px -4px #ddd,inset -5px -5px #ddd,inset -6px -6px #ddd,inset -7px -7px #ddd,inset -8px -8px #ddd
+}
+
+button {
+    background-color:#4CAF50; 
+    color:white; 
+    padding:12px; 
+    cursor:pointer; 
+    border-radius:5PX; 
+}
+button:hover{
+   background-color:#45a049
+}
+#result {
+   margin-top :20PX
+}
+  </style>
+</head>
+<body>
+  <h1>Економічний калькулятор</h1>
+
+  <p class="formula">ВВП = Споживання + Інвестиції + Державні закупівлі + (Експорт - Імпорт)</p>
+
+  <label for="consumption">Споживання:</label><br />
+  <input type="number" id="consumption" /><br />
+
+  <label for="investment">Інвестиції:</label><br />
+  <input type="number" id="investment" /><br />
+
+  <label for="govtPurchases">Державні закупівлі:</label><br />
+  <input type="number" id="govtPurchases" /><br />
+
+  <label for="export">Експорт:</label><br />
+  <input type="number" id="export" /><br />
+
+  <label for="import">Імпорт:</label><br />
+  <input type="number" id="import" /><br />
+
+  <button onclick="calculateGDP()">Розрахувати ВВП</button>
+
+  <div id="result"></div>
+
+<script>
+function calculateGDP() {
+    var consumption = parseFloat(document.getElementById("consumption").value);
+    var investment = parseFloat(document.getElementById("investment").value);
+    var govtPurchases = parseFloat(document.getElementById("govtPurchases").value);
+    var exportValue = parseFloat(document.getElementById("export").value);
+    var importValue = parseFloat(document.getElementById("import").value);
+
+    var gdp = consumption + investment + govtPurchases + (exportValue - importValue);
+    
+    document.getElementById("result").innerHTML = "ВВП: " + gdp;
+}
+</script>
+
+</body>
+</html>
